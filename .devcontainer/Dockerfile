@@ -1,4 +1,4 @@
-FROM jupyter/julia-notebook:julia-1.10
+FROM jupyter/julia-notebook:latest
 
 # 必要なシステムパッケージのインストール（CairoMakieの描画に必要）
 USER root
