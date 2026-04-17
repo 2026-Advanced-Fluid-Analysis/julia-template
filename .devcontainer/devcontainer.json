@@ -1,16 +1,9 @@
 {
-    "name": "Advanced Fluid Analysis (LTS)",
-    "image": "mcr.microsoft.com/devcontainers/base:ubuntu", 
-
-    "features": {
-        // 特定のJuliaバージョンを指定してインストールする機能
-        "ghcr.io/devcontainers/features/julia:1": {
-            "version": "1.10" 
-        }
-    },
+    "name": "Advanced Fluid Analysis (Julia 1.10 LTS)",
+    // バージョン 1.10 を直接指定した公式イメージを使用
+    "image": "julia:1.10-bookworm",
 
     "remoteEnv": {
-        // 先ほどのCPUエラー対策も念のため残しておきます
         "JULIA_CPU_TARGET": "generic;sandybridge,-xsaveopt,zkn"
     },
 
@@ -23,5 +16,7 @@
         }
     },
 
-    "postCreateCommand": "julia -e 'using Pkg; Pkg.add([\"Plots\", \"CairoMakie\", \"Printf\", \"Interact\"])'"
+    // 起動後に必要なものをインストール
+    // コンテナ内でJupyterを動かすために「IJulia」を明示的に追加します
+    "postCreateCommand": "julia -e 'using Pkg; Pkg.add([\"IJulia\", \"Plots\", \"CairoMakie\", \"Printf\", \"Interact\"])'"
 }
