@@ -1,14 +1,15 @@
 {
-  "name": "Julia 1.10 Course (Advanced Fluid Analysis)",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "julialang.language-julia"
-      ]
-    }
-  },
-  "forwardPorts": [8888]
+    "name": "Julia Template",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "julialang.language-julia",
+                "ms-toolsai.jupyter"
+            ]
+        }
+    },
+    "forwardPorts": [8888]
 }
