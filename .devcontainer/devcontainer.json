@@ -1,15 +1,10 @@
 {
-    "name": "Julia Template",
-    "build": {
-        "dockerfile": "Dockerfile"
-    },
+    "name": "Julia Advanced Fluid Analysis",
+    "image": "jupyter/julia-notebook:latest", 
     "customizations": {
         "vscode": {
-            "extensions": [
-                "julialang.language-julia",
-                "ms-toolsai.jupyter"
-            ]
+            "extensions": ["julialang.language-julia", "ms-toolsai.jupyter"]
         }
     },
-    "forwardPorts": [8888]
+    "postCreateCommand": "julia -e 'using Pkg; Pkg.add([\"Plots\", \"CairoMakie\", \"DifferentialEquations\"])'"
 }
