@@ -1,10 +1,27 @@
 {
-    "name": "Julia Advanced Fluid Analysis",
-    "image": "jupyter/julia-notebook:latest", 
-    "customizations": {
-        "vscode": {
-            "extensions": ["julialang.language-julia", "ms-toolsai.jupyter"]
+    "name": "Advanced Fluid Analysis (LTS)",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu", 
+
+    "features": {
+        // 特定のJuliaバージョンを指定してインストールする機能
+        "ghcr.io/devcontainers/features/julia:1": {
+            "version": "1.10" 
         }
     },
-    "postCreateCommand": "julia -e 'using Pkg; Pkg.add([\"Plots\", \"CairoMakie\", \"DifferentialEquations\"])'"
+
+    "remoteEnv": {
+        // 先ほどのCPUエラー対策も念のため残しておきます
+        "JULIA_CPU_TARGET": "generic;sandybridge,-xsaveopt,zkn"
+    },
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "julialang.language-julia",
+                "ms-toolsai.jupyter"
+            ]
+        }
+    },
+
+    "postCreateCommand": "julia -e 'using Pkg; Pkg.add([\"Plots\", \"CairoMakie\", \"DifferentialEquations\", \"LinearAlgebra\", \"SparseArrays\", \"Printf\", \"Interact\"])'"
 }
