@@ -23,5 +23,5 @@
         }
     },
 
-    "postCreateCommand": "julia -e 'using Pkg; Pkg.add([\"Plots\", \"CairoMakie\", \"DifferentialEquations\", \"LinearAlgebra\", \"SparseArrays\", \"Printf\", \"Interact\"])'"
+    "postCreateCommand": "julia -e 'using Pkg; Pkg.add([\"Plots\", \"CairoMakie\", \"Printf\", \"Interact\"])'"
 }
